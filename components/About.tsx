@@ -1,68 +1,131 @@
 import React from 'react';
 import Reveal from './Reveal';
+import { Language, translations } from '../translations';
 
-const About: React.FC = () => {
+interface AboutProps {
+  language: Language;
+}
+
+const About: React.FC<AboutProps> = ({ language }) => {
+  const t = translations[language].about;
+
   return (
-    <section id="o-meni" className="py-24 md:py-32 px-4 sm:px-8 lg:px-16 relative bg-background">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section id="o-meni" className="py-24 md:py-32 px-4 sm:px-8 lg:px-16 relative bg-background border-t border-zinc-900">
+      
+      {/* Background ambient lighting */}
+      <div className="absolute top-1/3 left-0 w-96 h-96 bg-neon-pink/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
+
+      <div className="max-w-7xl mx-auto flex flex-col gap-12">
         
-        {/* Left Side: Illustration / Image */}
-        <Reveal direction="right" className="relative group">
-          <div className="absolute inset-0 bg-neon-pink translate-x-4 translate-y-4 md:translate-x-8 md:translate-y-8 rounded-2xl transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2 -z-10"></div>
-          <div className="relative overflow-hidden rounded-2xl border-4 border-zinc-800 bg-zinc-900 aspect-square flex items-center justify-center">
-            {/* Using a placeholder, but applying harsh filters to make it edgy */}
-            <img 
-              src="https://picsum.photos/seed/cyberpunk/800/800" 
-              alt="My Avatar" 
-              className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 hover:scale-105 transition-all duration-700 mix-blend-luminosity hover:mix-blend-normal"
-            />
-            {/* Overlay graphic */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
-               <span className="font-mono text-neon-green font-bold text-xl drop-shadow-md">STATUS: Gaming & Coding</span>
-            </div>
-          </div>
+        {/* Header & Intro Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Floating badge */}
-          <div className="absolute -top-6 -right-6 md:-right-10 bg-zinc-900 border-2 border-neon-green p-4 rounded-full w-32 h-32 flex items-center justify-center animate-float">
-            <p className="text-center text-xs font-mono font-bold leading-tight">
-              Powered by<br/><span className="text-neon-green text-sm md:text-base leading-none block mt-1">Motivacija</span>
-            </p>
+          {/* Left Visual / Portrait with Edgy Styling */}
+          <div className="lg:col-span-5 relative group">
+            <Reveal direction="right" className="relative">
+              <div className="absolute inset-0 bg-neon-pink translate-x-3 translate-y-3 sm:translate-x-6 sm:translate-y-6 rounded-2xl transition-transform duration-300 group-hover:translate-x-2 group-hover:translate-y-2 -z-10"></div>
+              
+              <div className="relative overflow-hidden rounded-2xl border-4 border-zinc-800 bg-zinc-900 aspect-square sm:aspect-[4/5] flex items-center justify-center">
+                <img 
+                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" 
+                  alt="Kevin KETI Creator" 
+                  className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 hover:scale-105 transition-all duration-700 mix-blend-luminosity hover:mix-blend-normal"
+                />
+                
+                {/* Overlay graphic bar */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent flex flex-col justify-end p-6 sm:p-8">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="w-2.5 h-2.5 rounded-full bg-neon-green animate-ping"></span>
+                    <span className="font-mono text-neon-green font-bold text-sm sm:text-base">
+                      KEVIN • {t.nicknameLabel}
+                    </span>
+                  </div>
+                  <span className="text-zinc-300 text-xs sm:text-sm font-mono">
+                    {language === 'sl' ? '21 let • Kreator & Razvijalec' : '21 y/o • Creator & Developer'}
+                  </span>
+                </div>
+              </div>
+              
+              {/* Floating aesthetic badge */}
+              <div className="absolute -top-5 -right-3 sm:-right-6 bg-zinc-900 border-2 border-neon-green p-3 sm:p-4 rounded-full w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center animate-float shadow-xl">
+                <p className="text-center text-[10px] sm:text-xs font-mono font-bold leading-tight">
+                  {language === 'sl' ? 'FOKUS' : 'FOCUS'}<br/>
+                  <span className="text-neon-green text-sm sm:text-base leading-none block mt-1">21 LET</span>
+                  <span className="text-zinc-400 text-[9px] block">Web • Video • Foto</span>
+                </p>
+              </div>
+            </Reveal>
           </div>
-        </Reveal>
 
-        {/* Right Side: Text */}
-        <div className="flex flex-col gap-8">
-          <Reveal direction="left">
-             <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter text-white">
-               Kdo <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-pink to-purple-500">Sem?</span>
-             </h2>
-          </Reveal>
+          {/* Right Text / Story */}
+          <div className="lg:col-span-7 flex flex-col gap-6">
+            <Reveal direction="left">
+              <div className="flex items-center gap-3 mb-2">
+                <span className="h-[2px] w-8 bg-neon-green inline-block"></span>
+                <span className="text-neon-green font-mono uppercase tracking-widest text-xs font-bold">
+                  {language === 'sl' ? 'Zgodba & Osebni CV' : 'Story & Personal CV'}
+                </span>
+              </div>
+              <h2 className="text-4xl sm:text-5xl md:text-6xl font-black uppercase tracking-tighter text-white">
+                {t.titlePrefix}{' '}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-neon-pink via-purple-400 to-cyan-400">
+                  {t.titleHighlight}
+                </span>
+              </h2>
+            </Reveal>
 
-          <Reveal direction="left" delay={200}>
-            <p className="text-lg md:text-xl text-zinc-300 leading-relaxed">
-              Sem 20-letni web developer, ljubitelj nadzorovanega kaosa in perfekcionist za piksle. Programirati sem začel, ker rad rešujem probleme (in morda malo zaradi video iger), pristal pa sem v čudovitem svetu spleta.
-            </p>
-          </Reveal>
+            <Reveal direction="left" delay={150}>
+              <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+                {t.p1}
+              </p>
+            </Reveal>
 
-          <Reveal direction="left" delay={300}>
-            <p className="text-lg md:text-xl text-zinc-300 leading-relaxed">
-              Čeprav obvladam dosti različnih programskih jezikov in tehnologij, sem s časom ugotovil, kaj deluje najbolje in najhitreje.
-            </p>
-            <p className="text-lg md:text-xl text-zinc-300 leading-relaxed mt-4">
-              Spletne strani najraje gradim v <span className="text-neon-green">Reactu</span>, ker omogoča popolno svobodo in interaktivnost. Ko pa gre za spletne trgovine, prisegam na <span className="text-cyan-400">WordPress (WooCommerce)</span> – preverjena klasika, ki prodaja.
-            </p>
-          </Reveal>
+            <Reveal direction="left" delay={250}>
+              <p className="text-base sm:text-lg text-zinc-300 leading-relaxed">
+                {t.p2}
+              </p>
+            </Reveal>
 
-          <Reveal direction="left" delay={400}>
-            <div className="flex flex-col gap-4 border-l-2 border-zinc-800 pl-6 mt-4">
-              <h3 className="font-bold text-xl uppercase tracking-wider text-white">Hitra dejstva:</h3>
-              <ul className="flex flex-col gap-2 font-mono text-sm md:text-base text-zinc-400">
-                <li><span className="text-neon-pink">✓</span> Pristop: "Pravo orodje za pravi problem"</li>
-                <li><span className="text-neon-pink">✓</span> Fokus: React & WordPress</li>
-                <li><span className="text-neon-pink">✓</span> Gorivo: 100% Motivacija (0% Kofein)</li>
-              </ul>
-            </div>
-          </Reveal>
+            <Reveal direction="left" delay={350}>
+              <div className="bg-zinc-900/60 border-l-4 border-cyan-400 p-4 sm:p-5 rounded-r">
+                <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
+                  {t.p3}
+                </p>
+              </div>
+            </Reveal>
+
+            <Reveal direction="left" delay={450}>
+              <div className="bg-zinc-900/60 border-l-4 border-yellow-400 p-4 sm:p-5 rounded-r">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="text-xs font-mono font-bold text-yellow-400 uppercase tracking-widest">
+                    ★ {language === 'sl' ? 'Podjetniška Ambicija (KETI Brand)' : 'Entrepreneurial Ambition (KETI Brand)'}
+                  </span>
+                </div>
+                <p className="text-sm sm:text-base text-zinc-300 leading-relaxed">
+                  {t.p4}
+                </p>
+              </div>
+            </Reveal>
+
+            {/* Quick Facts summary */}
+            <Reveal direction="left" delay={550}>
+              <div className="mt-2 pt-6 border-t border-zinc-800">
+                <h3 className="font-bold text-base uppercase tracking-wider text-white mb-3">
+                  {t.factsTitle}
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs sm:text-sm font-mono text-zinc-400">
+                  {t.facts.map((fact, idx) => (
+                    <div key={idx} className="flex items-start gap-2">
+                      <span className="text-neon-pink font-bold">✓</span>
+                      <span>{fact}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+          </div>
+
         </div>
 
       </div>
