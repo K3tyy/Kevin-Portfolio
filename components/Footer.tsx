@@ -14,9 +14,16 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
         
         {/* Brand & Copyright */}
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-          <span className="font-mono font-black text-white text-base tracking-wider">
-            KEVIN <span className="text-neon-green">(KETI)</span>
-          </span>
+                  {/* Brand Logo */}
+          <div className="flex flex-col">
+        <a href="#" className="flex items-center group">
+          <img
+             src="keti_logo_.png" /* <-- TUKAJ VSTAVI POT ALI URL DO SVOJEGA LOGOTIPA (npr. /logo.png ali spletno povezavo) */
+             alt="Logo"
+             className="h-9 sm:h-11 w-auto object-contain hover:scale-105 transition-transform"
+          />
+        </a>
+          </div>
           <span className="hidden sm:inline text-zinc-700">•</span>
           <p className="text-zinc-500 font-mono text-xs sm:text-sm">
             © {new Date().getFullYear()} {t.builtWith}

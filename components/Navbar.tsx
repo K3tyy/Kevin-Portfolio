@@ -32,19 +32,15 @@ const Navbar: React.FC<NavbarProps> = ({ language, onLanguageChange }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-8 flex items-center justify-between">
         
         {/* Brand Logo */}
-        <a href="#" className="flex items-center gap-2 group">
-          <span className="w-8 h-8 bg-neon-green text-black font-black flex items-center justify-center font-mono text-base rounded-sm group-hover:rotate-6 transition-transform">
-            K
-          </span>
           <div className="flex flex-col">
-            <span className="text-white font-black tracking-tight text-lg leading-none group-hover:text-neon-green transition-colors">
-              KEVIN
-            </span>
-            <span className="text-[10px] font-mono text-zinc-400 tracking-widest uppercase">
-              KETI • CREATOR
-            </span>
-          </div>
+        <a href="#" className="flex items-center group">
+          <img
+             src="keti_logo_.png" /* <-- TUKAJ VSTAVI POT ALI URL DO SVOJEGA LOGOTIPA (npr. /logo.png ali spletno povezavo) */
+             alt="Logo"
+             className="h-9 sm:h-11 w-auto object-contain hover:scale-105 transition-transform"
+          />
         </a>
+          </div>
 
         {/* Desktop Navigation Links */}
         <nav className="hidden lg:flex items-center gap-7">

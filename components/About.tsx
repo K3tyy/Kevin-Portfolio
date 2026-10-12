@@ -27,9 +27,9 @@ const About: React.FC<AboutProps> = ({ language }) => {
               
               <div className="relative overflow-hidden rounded-2xl border-4 border-zinc-800 bg-zinc-900 aspect-square sm:aspect-[4/5] flex items-center justify-center">
                 <img 
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=900&q=80" 
+                  src="kevin_pic.jpg" 
                   alt="Kevin KETI Creator" 
-                  className="w-full h-full object-cover grayscale contrast-125 hover:grayscale-0 hover:scale-105 transition-all duration-700 mix-blend-luminosity hover:mix-blend-normal"
+                  className="w-full h-full object-cover grayscale contrast-115 brightness-95 opacity-90 hover:opacity-100 hover:grayscale-0 hover:brightness-105 hover:scale-105 transition-all duration-700"
                 />
                 
                 {/* Overlay graphic bar */}
@@ -46,13 +46,13 @@ const About: React.FC<AboutProps> = ({ language }) => {
                 </div>
               </div>
               
-              {/* Floating aesthetic badge */}
-              <div className="absolute -top-5 -right-3 sm:-right-6 bg-zinc-900 border-2 border-neon-green p-3 sm:p-4 rounded-full w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center animate-float shadow-xl">
-                <p className="text-center text-[10px] sm:text-xs font-mono font-bold leading-tight">
-                  {language === 'sl' ? 'FOKUS' : 'FOCUS'}<br/>
-                  <span className="text-neon-green text-sm sm:text-base leading-none block mt-1">21 LET</span>
-                  <span className="text-zinc-400 text-[9px] block">Web • Video • Foto</span>
-                </p>
+             {/* Floating aesthetic badge with Logo */}
+              <div className="absolute -top-5 -right-3 sm:-right-6 bg-zinc-900 border-2 border-neon-green p-3 sm:p-4 rounded-full w-28 h-28 sm:w-32 sm:h-32 flex items-center justify-center animate-float shadow-xl group">
+                <img
+                  src="keti_logo_.png"
+                  alt="Logo"
+                  className="w-full h-full object-contain p-1.5 hover:scale-110 transition-transform"
+                />
               </div>
             </Reveal>
           </div>
